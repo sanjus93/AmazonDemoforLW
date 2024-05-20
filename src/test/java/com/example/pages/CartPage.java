@@ -7,10 +7,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class CartPage extends BasePage {
 
-	@FindBy(css = "span.a-size-medium.a-color-base.sc-price.sc-white-space-nowrap")
+	@FindBy(xpath = "//span[@class='a-size-medium a-color-base sc-price sc-white-space-nowrap sc-product-price a-text-bold'][1]")
     private WebElement cartPrice;
 
-    @FindBy(xpath = "//span[@class='a-size-medium a-color-base sc-price sc-white-space-nowrap']")
+    @FindBy(xpath = "//span[@class='a-size-medium a-color-base sc-price sc-white-space-nowrap'][1]")
     private WebElement cartSubtotal;
 
     public CartPage(WebDriver driver) {
@@ -19,7 +19,7 @@ public class CartPage extends BasePage {
 
     public String getCartPrice() throws InterruptedException {
     	Thread.sleep(4000);
-    	
+    	System.out.println(cartPrice.getText());
         return cartPrice.getText();
     }
 
